@@ -4,8 +4,6 @@ function Jogo:new()
     cenario = Cenario()
     player = Player()
     score = Score()
-    --self.score = 0
-    --self.highscore = 0
 end
 
 function Jogo:update(dt)
@@ -43,12 +41,3 @@ function verificaColisao(player, box)
             return true
     end
 end
-
---[[ function Jogo:Score(player, box)
-    if player.y + player.h > box.y + box.h then
-        self.score = self.score + 1
-        if self.score > self.highscore then
-            self.highscore = self.score
-        end
-    end
-end ]]

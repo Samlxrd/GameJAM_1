@@ -15,6 +15,8 @@ function Cenario:new()
     ob.speed = -5
     ob.color = {0.5,0.5,0.5}
     table.insert(self.obstacles, ob)
+
+    self.background = love.graphics.newImage("images/bkBlue.bmp")
 end
 
 function Cenario:update(dt)
@@ -36,6 +38,12 @@ function Cenario:update(dt)
 end
 
 function Cenario:draw()
+    for i = 0, love.graphics.getWidth() / self.background:getWidth() do
+        for j = 0, love.graphics.getHeight() / self.background:getHeight() do
+            love.graphics.draw(self.background, i * self.background:getWidth(), j * self.background:getHeight())
+        end
+    end
+
     for i, obstacle in ipairs(self.obstacles) do
         love.graphics.setColor(obstacle.color)
         love.graphics.rectangle("fill", obstacle.x, obstacle.y, obstacle.w, obstacle.h)

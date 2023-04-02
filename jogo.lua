@@ -35,9 +35,9 @@ end
 
 function verificaColisao(player, box)
     if player.x < box.x + box.w and
-        player.x + player.w > box.x and
+        player.x  + (player.w * player.sprite:getWidth())> box.x and
         player.y < box.y + box.h and
-        player.y + player.h > box.y then
+        player.y + (player.h * player.sprite:getHeight()) > box.y then
             return true
     end
 end

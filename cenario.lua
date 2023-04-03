@@ -5,16 +5,7 @@ function Cenario:new()
     max_time = 1.5
     min_time = 0.4
     self.obstacles = {}
-    ob = {}
-    ob.passed = false
-    ob.h = 20
-    ob.w = 200
-    ob.x = love.graphics.getWidth()/2 - ob.w/2
-    ob.y = love.graphics.getHeight() + 50
-    ob.gravity = -200
-    ob.speed = -5
-    ob.color = {0.5,0.5,0.5}
-    table.insert(self.obstacles, ob)
+    table.insert(self.obstacles, Cenario:generateObstacle())
 
     self.background = love.graphics.newImage("images/bkBlue.bmp")
 end

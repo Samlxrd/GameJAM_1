@@ -25,12 +25,18 @@ function Player:update(dt)
     end
 
     if love.keyboard.isDown(leftKey) and self.x > 0 then
-        self.direction = 1
+        if self.direction == -1 then
+            self.direction = 1
+            self.x = self.x - self.w * self.sprite:getWidth()
+        end
         self.x = self.x - self.speed * dt
     end
 
     if love.keyboard.isDown(rightKey) and self.x < love.graphics.getWidth() - (self.w * self.sprite:getWidth()) then
-        self.direction = -1
+        if self.direction == 1 then
+            self.direction = -1
+            self.x = self.x + self.w * self.sprite:getWidth()
+        end
         self.x = self.x + self.speed * dt
     end
 

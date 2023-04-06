@@ -17,7 +17,7 @@ function Jogo:update(dt)
     cenario:update(dt)
     player:update(dt)
     for i, box in ipairs(cenario.obstacles) do
-        if (player.y + player.h > box.y + box.h) and box.passed == false then
+        if (player.y + player.scale > box.y + box.h) and box.passed == false then
             score.score = score.score + 1
             box.passed = true
             if score.score > score.highscore then
@@ -35,9 +35,9 @@ end
 
 function verificaColisao(player, box)
     if player.x < box.x + box.w and
-        player.x  + (player.w * player.sprite:getWidth())> box.x and
+        player.x  + (player.scale * player.sprite:getWidth())> box.x and
         player.y < box.y + box.h and
-        player.y + (player.h * player.sprite:getHeight()) > box.y then
+        player.y + (player.scale * player.sprite:getHeight()) > box.y then
             return true
     end
 end

@@ -5,6 +5,7 @@ require "player"
 require "score"
 
 function love.load()
+    love.graphics.setDefaultFilter("nearest", "nearest")
     jogo = Jogo()
 end
 
